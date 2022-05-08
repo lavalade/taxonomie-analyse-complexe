@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.20">
-<info created="D:20210206192659" modified="D:20220412225224" title="Taxonomie et propriétés des fonctions complexes" author="Laurent Valade" subject="Analyse complexe" keywords="taxonomie; fonction; complexe; holomorphe; méromorphe; analytique; transformation conforme; biholomorphe; Möbius; Cauchy; Riemann; Taylor; Laurent; harmonique; intégrale; dérivée; série; singularité; pôle; surjection; injection; bijection;"/>
+<info created="D:20210206192659" modified="D:20220508211540" title="Taxonomie et propriétés des fonctions complexes" author="Laurent Valade" subject="Analyse complexe" keywords="taxonomie; fonction; complexe; holomorphe; méromorphe; analytique; transformation conforme; biholomorphe; Möbius; Cauchy; Riemann; Taylor; Laurent; harmonique; intégrale; dérivée; série; singularité; pôle; surjection; injection; bijection;"/>
 <preamble>
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -34,6 +34,8 @@ $
 
 % Divers
 \newcommand{\textsquare}{$\blacksquare$}
+\newcommand{\cad}{càd}
+\newcommand{\ie}{\emph{i.e.}}
 
 % Opérateurs et constantes
 \newcommand{\dd}{\,\mathrm{d}}
@@ -49,6 +51,7 @@ $
 \newcommand{\Abs}[1]{\left|{#1}\right|}
 \newcommand{\conj}[1]{\overline{#1}}
 \newcommand{\Arg}[1]{\mathrm{Arg}\left({#1}\right)}
+\newcommand{\Res}[2]{\mathrm{Res}\left({#1}, {#2}\right)}
 
 % Flèches
 \newcommand{\vers}{\rightarrow}  % f : A \vers B
@@ -430,12 +433,26 @@ h
 104 792 l
 h
 </path>
-<text matrix="1 0 0 1 168 8" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="11.295" depth="7.31" valign="baseline" size="footnote">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 352 -44" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="57.54" depth="52.67" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
-Dévivable ssi 
-$\displaystyle \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}$
-existe.
+Dérivabilité
 \end{center}
+\vspace{-3ex}
+\begin{flushleft}
+\begin{footnotesize}
+$f$ dévivable en $z_{0}$ ssi 
+$\displaystyle \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}$
+existe, \ie{}:
+\\
+\textbullet\; la limite est finie ;
+\\
+\textbullet\; la limite est la même quelque soit le chemin emprunté par $z$ pour tendre vers $z_{0}$, pex si $z$ suit les axes réels / imaginaire, alors\,: \\
+\formula{%
+\partial_{x} f = \partial_{\ui y} f = - \ui \partial_{y} f = f&apos;(z),
+} \\
+d’où les équations de Cauchy--Riemann.
+\end{footnotesize}
+\end{flushleft}
 \end{minipage}</text>
 <text matrix="1 0 0 1 168 -36" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="16.289" depth="11.33" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
@@ -494,7 +511,7 @@ et harmoniques conjuguées :\\
 \end{footnotesize}
 \end{flushleft}
 \end{minipage}</text>
-<text matrix="1 0 0 1 880 -740" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="52.115" depth="48.23" valign="baseline" size="footnote">\begin{minipage}{236pt}
+<text matrix="1 0 0 1 -32 -660" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="52.115" depth="48.23" valign="baseline" size="footnote">\begin{minipage}{236pt}
 \begin{flushleft}
 \textbf{Remarque}
 \hspace{1em}
@@ -512,11 +529,13 @@ f(z) = \frac{1}{\ui \tau} \oint_\gamma \frac{f(w)}{w - z} \dd w.
 %
 \end{flushleft}
 \end{minipage}</text>
-<text matrix="1 0 0 1 840 -96" transformations="translations" pos="48 816" stroke="black" type="label" width="278.954" height="100.981" depth="97.22" valign="baseline" size="footnote">\begin{minipage}{280pt}
+<text matrix="1 0 0 1 848 -292" transformations="translations" pos="48 816" stroke="black" type="label" width="278.954" height="100.719" depth="95.96" valign="baseline">\begin{minipage}{280pt}
+\begin{center}
+\textbf{Nomenclature}
+\end{center}
+\vspace{-5ex}
 \begin{flushleft}
-{\normalsize\textbf{
-Nomenclature
-}} \\
+\begin{footnotesize}
 $\tau = 2 * \pi$ : Rapport de la circonférence du cercle à son rayon \\
 $D, E \subseteq \bbC$ : Un ouvert du plan complexe \\
 $z, w \in D, \bbC, \riemannsphere$ : Variables complexes \\
@@ -537,22 +556,23 @@ LPM : Lisse Par Morceaux \\
 $\boundary{D}$ : Frontière de $D$ \\
 $\interior{D}$ : Intérieur de $D$ : l’ensemble des \emph{points intérieur} de $D$ \\
 $\closure{D} = D \cup \boundary{D}$ : Adhérence (cloture) de $D$ \\
+\end{footnotesize}
 \end{flushleft}
 \end{minipage}</text>
-<text matrix="1 0 0 1 400 -252" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="13.164" depth="8.2" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 400 -132" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="13.164" depth="8.2" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
-Entière \\
+Entières \\
 holomorphes sur tout $\bbC$ : $\mathcal{H}(\bbC, \bbC)$
 \end{center}
 \end{minipage}</text>
-<path matrix="0.954545 0 0 1 432.727 -244" stroke="black">
+<path matrix="0.954545 0 0 1 432.727 -124" stroke="black">
 16 824 m
 16 800 l
 192 800 l
 192 824 l
 h
 </path>
-<path matrix="0 1 -1 0 1184 468" stroke="black" fill="black">
+<path matrix="0 1 -1 0 1184 588" stroke="black" fill="black">
 100 800 m
 96 792 l
 104 792 l
@@ -693,25 +713,25 @@ g(z_3) &amp;= \infty = h(w_3).
 \end{footnotesize}
 \end{flushleft}
 \end{minipage}</text>
-<text matrix="1 0 0 1.32949 256 -966.181" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="11.924" depth="6.95" valign="baseline">\begin{minipage}{96pt}
+<text matrix="1 0 0 1.32949 -32 -754.181" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="11.924" depth="6.95" valign="baseline">\begin{minipage}{96pt}
 \begin{center}
 Rotation-homothétie \\
 $z \mapsto a * z$
 \end{center}
 \end{minipage}</text>
-<text matrix="1 0 0 1.32949 256 -1006.18" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="12.334" depth="7.37" valign="baseline">\begin{minipage}{96pt}
+<text matrix="1 0 0 1.32949 -32 -794.18" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="12.334" depth="7.37" valign="baseline">\begin{minipage}{96pt}
 \begin{center}
 Translations \\
 $z \mapsto z + a$
 \end{center}
 \end{minipage}</text>
-<text matrix="1 0 0 1.32949 256 -1046.18" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="11.873" depth="6.89" valign="baseline">\begin{minipage}{96pt}
+<text matrix="1 0 0 1.32949 -32 -834.18" transformations="translations" pos="48 816" stroke="black" type="label" width="95.641" height="11.873" depth="6.89" valign="baseline">\begin{minipage}{96pt}
 \begin{center}
 Inversion \\
 $z \mapsto z^{-1}$
 \end{center}
 \end{minipage}</text>
-<path matrix="1 0 0 1 48 16" stroke="black">
+<path matrix="1 0 0 1 -240 228" stroke="black">
 256 36 m
 256 12 l
 352 12 l
@@ -725,7 +745,7 @@ h
 104 792 l
 h
 </path>
-<group matrix="1 0 0 1 676 -212">
+<group matrix="1 0 0 1 676 -24">
 <path stroke="blue" fill="lightblue">
 28 0 0 28 160 592 e
 </path>
@@ -823,7 +843,7 @@ $f$ continue sur $D$ et possède une primitive sur $D$ (càd $F&apos;(z) = f(z),
 216 796 l
 h
 </path>
-<text matrix="1 0 0 1 368 -312" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="26.406" depth="21.47" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 368 -184" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="26.406" depth="21.47" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Théorème intégral de Cauchy
 \end{center}
@@ -837,14 +857,14 @@ $D$ simplement connexe, $f : D \vers \bbC$ holomorphe et $\gamma : [a, b] \vers 
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 -96 -156" stroke="black">
+<path matrix="1 0 0 1 -96 -28" stroke="black">
 512 688 m
 512 636 l
 680 636 l
 680 688 l
 h
 </path>
-<text matrix="1 0 0 1 368 -396" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="40.367" depth="35.46" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 368 -268" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="40.367" depth="35.46" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Corollaire
 \end{center}
@@ -863,7 +883,7 @@ Si $f$ est holomorphe sur $D$ et que $D$ contient $\gamma$, $\beta$ et la régio
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<text matrix="1 0 0 1 368 -524" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="43.886" depth="39" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 368 -396" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="43.886" depth="39" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Formule intégrale de Cauchy
 \end{center}
@@ -881,14 +901,14 @@ f^{(k)}(z) = \frac{k!}{\ui \tau} \oint_\gamma \frac{f(w)}{(w - z)^{k + 1}} \dd w
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path stroke="black">
+<path matrix="1 0 0 1 0 128" stroke="black">
 416 336 m
 416 252 l
 584 252 l
 584 336 l
 h
 </path>
-<group matrix="1 0 0 1 -92 -156">
+<group matrix="1 0 0 1 -92 -28">
 <path fill="lightred">
 512 540 m
 512 508 l
@@ -957,7 +977,7 @@ h
 572 524 l
 </path>
 </group>
-<group matrix="1 0 0 1 -92 -156">
+<group matrix="1 0 0 1 -92 -28">
 <path matrix="1 0 0 1 56 0" fill="lightred">
 512 540 m
 512 508 l
@@ -1040,7 +1060,7 @@ h
 572 524 l
 </path>
 </group>
-<group matrix="1 0 0 1 -92 -156">
+<group matrix="1 0 0 1 -92 -28">
 <path matrix="1 0 0 1 110 0" fill="lightred">
 512 540 m
 512 508 l
@@ -1128,7 +1148,7 @@ h
 572 524 l
 </path>
 </group>
-<group matrix="1 0 0 1 -88 -108">
+<group matrix="1 0 0 1 -88 20">
 <path matrix="0.77193 0 0 1 148.912 0" fill="lightgreen">
 592 408
 640 416
@@ -1161,7 +1181,7 @@ h
 </path>
 <text matrix="1 0 0 1 -23.526 -3.3683" transformations="translations" pos="661.169 403.813" stroke="blue" type="label" width="4.276" height="3.432" depth="0" valign="baseline" size="footnote" style="math">z</text>
 </group>
-<text matrix="1 0 0 1 384 -612" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="30.948" depth="26.02" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 384 -484" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="30.948" depth="26.02" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Théorème de l’estimation de Cauchy
 \end{center}
@@ -1175,14 +1195,14 @@ Soient $f$ holomorphe sur un ouvert contenant $\closure{\ball{z_0}{r}}$, et une 
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 -80 -148" stroke="black">
+<path matrix="1 0 0 1 -80 -20" stroke="black">
 512 384 m
 512 324 l
 680 324 l
 680 384 l
 h
 </path>
-<text matrix="1 0 0 1 400 -676" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="16.015" depth="11.05" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 400 -548" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="16.015" depth="11.05" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Théorème Liouville
 \end{center}
@@ -1193,24 +1213,24 @@ Si $f$ est entière et bornée ($\exists m : \abs{f(z)} \leq m$), alors $f$ est 
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 -264 -224" stroke="black">
+<path matrix="1 0 0 1 -264 -96" stroke="black">
 712 384 m
 712 352 l
 880 352 l
 880 384 l
 h
 </path>
-<text matrix="1 0 0 1 400 -704" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="15.429" depth="11.47" valign="baseline" size="footnote">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 400 -576" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="15.429" depth="11.47" valign="baseline" size="footnote">\begin{minipage}{168pt}
 Soit $f = u + \ui v$ entière avec $u(z) \leq 0$ pour tout $z \in \bbC$, alors (en considérant $g(z) = \exp(f(z))$ qui est entière aussi) $f$ est constante. 
 \end{minipage}</text>
-<path matrix="1 0 0 1 -264 -208" stroke="black">
+<path matrix="1 0 0 1 -264 -80" stroke="black">
 712 336 m
 712 308 l
 880 308 l
 880 336 l
 h
 </path>
-<text matrix="1 0 0 1 552 -780" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="20.962" depth="16.01" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 400 -712" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="20.962" depth="16.01" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Théorème fondamental de l’algèbre
 \end{center}
@@ -1221,14 +1241,14 @@ Tout polynome $p(z) = a_0 + a_1 * z + \cdots + a_n * z^n$ (avec $a_0, \ldots, a_
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 -312 -324" stroke="black">
+<path matrix="1 0 0 1 -464 -256" stroke="black">
 912 384 m
 912 340 l
 1080 340 l
 1080 384 l
 h
 </path>
-<text matrix="1 0 0 1 368 -756" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="19.97" depth="15.01" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 368 -628" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="19.97" depth="15.01" valign="baseline">\begin{minipage}{168pt}
 \begin{center}
 Théorème du principe du maximum
 \end{center}
@@ -1239,17 +1259,17 @@ Soient $f$ holomorphe sur $D$ et $z_0 \in D$ tel que $f(z) \leq f(z_0)$ pour tou
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 -544 -248" stroke="black">
+<path matrix="1 0 0 1 -544 -120" stroke="black">
 960 332 m
 960 292 l
 1128 292 l
 1128 332 l
 h
 </path>
-<text matrix="1 0 0 1 368 -788" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="15.33" depth="11.37" valign="baseline" size="footnote">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 368 -660" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="15.33" depth="11.37" valign="baseline" size="footnote">\begin{minipage}{168pt}
 Soient $D \subset \bbC$ borné, et $f$ continue sur $\closure{D}$ et holomorphe sur $D$, alors $\abs{f}$ atteint son maximum sur $\partial D$.
 \end{minipage}</text>
-<path matrix="1 0 0 1 -544 -248" stroke="black">
+<path matrix="1 0 0 1 -544 -120" stroke="black">
 960 292 m
 960 264 l
 1128 264 l
@@ -1303,29 +1323,29 @@ h
 372 448 m
 372 448 l
 </path>
-<path matrix="1 0 0 1 48 56" stroke="black">
+<path matrix="1 0 0 1 -240 268" stroke="black">
 256 36 m
 256 12 l
 352 12 l
 352 36 l
 h
 </path>
-<path matrix="1 0 0 1 48 96" stroke="black">
+<path matrix="1 0 0 1 -240 308" stroke="black">
 256 36 m
 256 12 l
 352 12 l
 352 36 l
 h
 </path>
-<path matrix="1 0 0 1 -300 -16" stroke="black">
+<path matrix="1 0 0 1 -300 112" stroke="black">
 808 268 m
 808 252 l
 </path>
-<path matrix="1 0 0 1 -108 -96" stroke="black">
+<path matrix="1 0 0 1 -108 32" stroke="black">
 624 272 m
 624 256 l
 </path>
-<path matrix="1 0 0 1 -8 0" stroke="black">
+<path matrix="1 0 0 1 -8 128" stroke="black">
 432 252 m
 432 84 l
 </path>
@@ -1361,7 +1381,7 @@ h
 112 812 m
 112 796 l
 </path>
-<text matrix="1 0 0 1 -32 -572" transformations="translations" pos="48 816" stroke="black" type="label" width="199.253" height="101.738" depth="97.98" valign="baseline" size="footnote">\begin{minipage}{200pt}
+<text matrix="1 0 0 1 848 -720" transformations="translations" pos="48 816" stroke="black" type="label" width="278.954" height="78.105" depth="74.29" valign="baseline" size="footnote">\begin{minipage}{280pt}
 \begin{center}
 {\normalsize\textbf{
 Topologie dans le plan (complexe)
@@ -1392,14 +1412,13 @@ $\closure{D}$ est aussi le plus petit fermé qui contient $D$. \\
 \textbullet\; $A \subset \bbC$ est \emph{borné} s’il existe $R &gt; 0$ tel que $A \subset \ball{0}{R}$.
 %
 \end{minipage}</text>
-<text matrix="1 0 0 1 352 -112" transformations="translations" pos="48 816" stroke="black" type="label" width="199.253" height="116.045" depth="112.33" valign="baseline" size="footnote">\begin{minipage}{200pt}
+<text matrix="1 0 0 1 848 -516" transformations="translations" pos="48 816" stroke="black" type="label" width="278.954" height="110.613" depth="105.89" valign="baseline">\begin{minipage}{280pt}
 \begin{center}
-{\normalsize\textbf{
-Formulaire
-}} 
+\textbf{Formulaire}
 \end{center}
-\vspace{-6ex}
+\vspace{-5ex}
 \begin{flushleft}
+\begin{footnotesize}
 %
 \textbullet\; Forme cartésienne : $z = x + \ui y = \rho (\cos\theta + \ui \sin\theta)$ \\
 %
@@ -1431,9 +1450,10 @@ y &amp;= \rho \sin\theta
 \theta &amp;= 2 \arctan \frac{y}{\rho + x}
 \end{aligned}\right.$ \\
 %
+\end{footnotesize}
 \end{flushleft}
 \end{minipage}</text>
-<text matrix="1 0 0 1 588 -80" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="88.427" depth="83.64" valign="baseline">\begin{minipage}{236pt}
+<text matrix="1 0 0 1 852 -80" transformations="translations" pos="48 816" stroke="black" type="label" width="278.954" height="87.647" depth="82.87" valign="baseline">\begin{minipage}{280pt}
 \begin{center}
 Séries $\displaystyle \sum_{k = 0}^{\infty} w_k = w_0 + w_1 + \cdots + w_k + \cdots, \quad w_k \in \bbC$
 \end{center}
@@ -1460,14 +1480,14 @@ S_n = \sum_{k = 0}^{n} w_k = w_0 + w_1 + \cdots + w_n.
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 384 28" stroke="black">
+<path matrix="1 0 0 1 648 28" stroke="black">
 248 796 m
 248 624 l
 488 624 l
 488 796 l
 h
 </path>
-<text matrix="1 0 0 1 586 -276" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="94.662" depth="89.9" valign="baseline">\begin{minipage}{236pt}
+<text matrix="1 0 0 1 586 -88" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="94.662" depth="89.9" valign="baseline">\begin{minipage}{236pt}
 \begin{center}
 Rayon de convergence
 \end{center}
@@ -1476,8 +1496,8 @@ Rayon de convergence
 \vspace{-3ex}
 Il existe $0 \leq R \leq \infty$ tel que $\sum_{k = 0}^{\infty} a_k (z - z_0)^k$ \\
 \textcolor{blue}{\emph{converge absolument} dans $\ball{z_0}{R} = \{\abs{z - z_0} &lt; R\}$}, \\
-\textcolor{red}{\emph{diverge grossièrement} dans $\{\abs{z - z_0} &gt; R\}$}, \\
-\textcolor{gray}{\emph{diverge} ou \emph{converge} sur $\{\abs{z - z_0} = R\}$}. \\
+\textcolor{purple}{\emph{diverge} ou \emph{converge} sur $\{\abs{z - z_0} = R\}$}, \\
+\textcolor{red}{\emph{diverge grossièrement} dans $\{\abs{z - z_0} &gt; R\}$}. \\
 %
 \textbullet\; \textcolor{green}{La convergence est \emph{normale}, donc \emph{uniforme}, \\
 dans tout compact inclus dans $\ball{z_0}{R}$}. \\
@@ -1585,7 +1605,7 @@ dont le rayon de convergence est $R \geq r$. \\
 184 488 c
 </path>
 </group>
-<text matrix="1 0 0 1 586 -572" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="186.941" depth="182.41" valign="baseline">\begin{minipage}{236pt}
+<text matrix="1 0 0 1 586 -384" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="186.941" depth="182.41" valign="baseline">\begin{minipage}{236pt}
 \begin{center}
 Séries de Laurent
 \end{center}
@@ -1631,82 +1651,13 @@ et avec $\gamma \in \annulus{z_0}{r}{R}$, converge partout dans $\annulus{z_0}{r
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path stroke="black">
+<path matrix="1 0 0 1 0 188" stroke="black">
 632 432 m
 632 68 l
 872 68 l
 872 432 l
 h
 </path>
-<group matrix="1 0 0 1 384 28">
-<path matrix="1 0 0 1 2 208" fill="lightred">
-480 344
-480 356
-480 368
-468 366
-456 372
-442 366
-422 370
-432 304
-440 324
-452 314
-468 320
-480 312
-484 338
-484 338 u
-</path>
-<path matrix="1 0 0 1 2 208" fill="lightblue">
-24 0 0 24 456 344 e
-</path>
-<path matrix="1 0 0 1 2 208" stroke="gray">
-24 0 0 24 456 344 e
-</path>
-<path matrix="1 0 0 1 2 208" stroke="green" fill="lightgreen">
-472 334
-462 346
-458 380
-420 334
-478 330
-474 338
-472 348 u
-</path>
-<path stroke="black">
-248 608 m
-248 420 l
-488 420 l
-488 608 l
-h
-</path>
-<group matrix="1 0 0 1 74 210">
-<path matrix="0.707107 0.707107 -0.707107 0.707107 354.302 -171.36" stroke="black" pen="heavier">
-384 344 m
-384 340 l
-</path>
-<path matrix="0.707107 0.707107 -0.707107 0.707107 354.302 -171.36" stroke="black" pen="heavier">
-382 342 m
-386 342 l
-</path>
-</group>
-<text matrix="1 0 0 1 -160 -24" transformations="translations" pos="620 572" stroke="black" type="label" width="8.09" height="3.439" depth="1.1" valign="baseline" size="footnote" style="math">z_0</text>
-<text matrix="1 0 0 1 -176 -26" transformations="translations" pos="620 572" stroke="black" type="label" width="6.427" height="5.446" depth="0" valign="baseline" size="footnote" style="math">R</text>
-<text matrix="1 0 0 1 -178 -16" transformations="translations" pos="620 572" stroke="green" type="label" width="33.853" height="8.059" depth="2.84" valign="baseline" size="footnote" style="math">{}^{\text{\textsf{Convergence}}}_{\text{\textsf{normale}}}</text>
-<text matrix="1 0 0 1 -178 -38" transformations="translations" pos="620 572" stroke="blue" type="label" width="33.853" height="8.059" depth="2.84" valign="baseline" size="footnote" style="math">{}^{\text{\textsf{Convergence}}}_{\text{\textsf{absolue}}}</text>
-<text matrix="1 0 0 1 -190 -46" transformations="translations" pos="620 572" stroke="red" type="label" width="54.278" height="2.743" depth="2.57" valign="baseline" size="footnote" style="math">{}_{\text{\textsf{Divergence grossière}}}</text>
-<text matrix="1 0 0 1 -190 4" transformations="translations" pos="620 572" stroke="gray" type="label" width="54.401" height="2.743" depth="2.57" valign="baseline" size="footnote" style="math">{}_{\text{\textsf{Diverge ou converge}}}</text>
-<group>
-<path matrix="1 0 0 1 10 192" fill="black">
-424 360 m
-430 362 l
-428 360 l
-430 358 l
-424 360 l
-</path>
-<path matrix="1 0 0 1 2 208" stroke="black" fill="lightgreen">
-456 344 m
-434 344 l
-</path>
-</group>
-</group>
 <path stroke="black">
 300 796 m
 300 816 l
@@ -1723,7 +1674,7 @@ h
 604 320 m
 604 304 l
 </path>
-<group matrix="1 0 0 1 -468 -92">
+<group matrix="1 0 0 1 -252 -148">
 <path matrix="0.666667 0 0 0.666667 208 -217.333" fill="lightred">
 24 0 0 24 720 584 e
 </path>
@@ -1838,37 +1789,32 @@ h
 104 792 l
 h
 </path>
-<path stroke="black">
+<path matrix="1 0 0 1 0 128" stroke="black">
 500 352 m
 500 336 l
 </path>
-<path matrix="1 0 0 1 0 -4" stroke="black">
+<path matrix="1 0 0 1 0 124" stroke="black">
 416 468 m
 416 356 l
 584 356 l
 584 468 l
 h
 </path>
-<path stroke="black">
+<path matrix="1 0 0 1 0 128" stroke="black">
 500 480 m
 500 464 l
 </path>
 <path stroke="black">
-384 548 m
-500 548 l
-500 532 l
+608 288 m
+608 676 l
 </path>
-<path stroke="black">
-608 160 m
-608 556 l
-</path>
-<path stroke="black">
+<path matrix="1 0 0 1 0 120" stroke="black">
 448 568 m
 384 568 l
 </path>
 <path stroke="black">
-608 100 m
-608 60 l
+608 228 m
+608 128 l
 </path>
 <path matrix="0 1 -1 0 1000 644" stroke="black" fill="black">
 100 800 m
@@ -1881,26 +1827,57 @@ h
 200 744 m
 216 744 l
 </path>
-<text matrix="1 0 0 1 856 -416" transformations="translations" pos="48 816" stroke="black" type="label" width="167.372" height="58.215" depth="53.36" valign="baseline">\begin{minipage}{168pt}
+<text matrix="1 0 0 1 584 -728" transformations="translations" pos="48 816" stroke="black" type="label" width="235.118" height="145.531" depth="140.88" valign="baseline">\begin{minipage}{236pt}
 \begin{center}
 \textbf{Théorème des résidus}
 \end{center}
 \begin{footnotesize}
 \begin{flushleft}
 \vspace{-3ex}
-Soit $f : \annulus{z_0}{0}{R}$ holomorphe avec une \emph{singularité isolée} en $z_0$, alors elle possède une série de Laurent, et si on l’intègre sur un contour $\gamma \in \annulus{z_0}{0}{R}$ : \\
+Soient $f : D \vers \bbC$ holomorphe ($D$ simplement connexe) sauf en les \emph{singularités isolées} $z_{1}, \ldots, z_{n}$, et $\gamma$ une courbe simple fermée (orientée trigonométriquement) dans $D$ ; alors
+\\
+\formula{%
+\oint_{\gamma} f(z) \,\dd z = \ui \tau \sum_{k = 1}^{n} \Res{f}{z_{k}}.
+}
+\\
+%
+\textbullet\; Soit $f : \annulus{z_0}{0}{R} \vers \bbC$ holomorphe avec une \emph{singularité isolée} en $z_0$, alors elle possède une série de Laurent, et son résidu en $z_{0}$ est $\Res{f}{z_{0}} = a_{-1}$ (le coefficient du terme $1 / (z - z_{0})$.
+Si on intègre $f$ sur un contour $\gamma \in \annulus{z_0}{0}{R}$ : \\
 \formula{%
 \begin{aligned}
-\int_\gamma f(z) \,\dd z
+\oint_\gamma f(z) \,\dd z
 	&amp;= \sum_{k = -\infty}^{+\infty} a_k \int_\gamma (z - z_0)^k \,\dd z \\
 	&amp;= a_{-1} \int_\gamma \frac{\dd z}{z - z_0} \\
 	&amp;= \ui \tau * a_{-1}
 \end{aligned}
 }
+\\
+%
+\textbullet\; Calcul d’un résidu à un pôle simple (\cad{} $a_{-1} \neq 0$ et $a_{k} = 0$ pour $k &lt; -1$) :
+\\
+\formula{%
+\Res{f}{z_{0}} = a_{-1} = \lim_{z \rightarrow z_{0}} (z - z_{0}) * f(z).
+}
+\\
+%
+\textbullet\; Calcul d’un résidu à un pôle simple d’ordre~$n$ (\cad{} $a_{-n} \neq 0$ et $a_{-n} = 0$ pour $k &lt; -n$) :
+\\
+\formula{%
+\Res{f}{z_{0}} = a_{-n}
+}
+\formula{%
+= \frac{1}{(n - 1)!} \lim_{z \rightarrow z_{0}}  \frac{\dd^{n-1}}{\dd z^{n-1}} \left( (z - z_{0})^{n} * f(z) \right).
+}
+\\
+%
+\textbullet\; Si $f(z) = \dfrac{g(z)}{h(z)}$ avec $g$ et $h$ holomorphes au voisinage de $z_{0}$, et $h$ possède un pôle simple en $z_{0}$, alors \\
+\formula{%
+\Res{f}{z_{0}} = \frac{g(z_{0})}{h&apos;(z_{0})}
+}
 \end{flushleft}
 \end{footnotesize}
 \end{minipage}</text>
-<path matrix="1 0 0 1 392 48" stroke="black">
+<path matrix="1 0 0 1 120 -296" stroke="black">
 512 384 m
 512 324 l
 680 324 l
@@ -1908,5 +1885,94 @@ Soit $f : \annulus{z_0}{0}{R}$ holomorphe avec une \emph{singularité isolée} e
 h
 </path>
 <text matrix="1 0 0 1 -12 8" transformations="translations" pos="944 0" stroke="black" type="label" width="249.817" height="5.536" depth="1.77" valign="baseline">{\footnotesize\texttt{https://github.com/LaurentValade/taxonomie-analyse-complexe}}</text>
+<path matrix="1 0 0 1 384 216" stroke="black">
+248 608 m
+248 420 l
+488 420 l
+488 608 l
+h
+</path>
+<group matrix="1 0 0 1 0 188">
+<path matrix="1 0 0 1 386 236" fill="lightred">
+480 344
+480 356
+480 368
+468 366
+456 372
+442 366
+422 370
+432 304
+440 324
+452 314
+468 320
+480 312
+484 338
+484 338 u
+</path>
+<path matrix="1 0 0 1 386 236" fill="lightblue">
+24 0 0 24 456 344 e
+</path>
+<path matrix="1 0 0 1 386 236" stroke="purple">
+24 0 0 24 456 344 e
+</path>
+<path matrix="1 0 0 1 386 236" stroke="green" fill="lightgreen">
+472 334
+462 346
+458 380
+420 334
+478 330
+474 338
+472 348 u
+</path>
+<group matrix="1 0 0 1 458 238">
+<path matrix="0.707107 0.707107 -0.707107 0.707107 354.302 -171.36" stroke="black" pen="heavier">
+384 344 m
+384 340 l
+</path>
+<path matrix="0.707107 0.707107 -0.707107 0.707107 354.302 -171.36" stroke="black" pen="heavier">
+382 342 m
+386 342 l
+</path>
+</group>
+<text matrix="1 0 0 1 224 4" transformations="translations" pos="620 572" stroke="black" type="label" width="8.09" height="3.439" depth="1.1" valign="baseline" size="footnote" style="math">z_0</text>
+<text matrix="1 0 0 1 208 2" transformations="translations" pos="620 572" stroke="black" type="label" width="6.427" height="5.446" depth="0" valign="baseline" size="footnote" style="math">R</text>
+<text matrix="1 0 0 1 206 12" transformations="translations" pos="620 572" stroke="green" type="label" width="33.853" height="8.059" depth="2.84" valign="baseline" size="footnote" style="math">{}^{\text{\textsf{Convergence}}}_{\text{\textsf{normale}}}</text>
+<text matrix="1 0 0 1 206 -10" transformations="translations" pos="620 572" stroke="blue" type="label" width="33.853" height="8.059" depth="2.84" valign="baseline" size="footnote" style="math">{}^{\text{\textsf{Convergence}}}_{\text{\textsf{absolue}}}</text>
+<text matrix="1 0 0 1 194 -18" transformations="translations" pos="620 572" stroke="red" type="label" width="54.278" height="2.743" depth="2.57" valign="baseline" size="footnote" style="math">{}_{\text{\textsf{Divergence grossière}}}</text>
+<text matrix="1 0 0 1 194 32" transformations="translations" pos="620 572" stroke="purple" type="label" width="54.401" height="2.743" depth="2.57" valign="baseline" size="footnote" style="math">{}_{\text{\textsf{Diverge ou converge}}}</text>
+<group matrix="1 0 0 1 384 28">
+<path matrix="1 0 0 1 10 192" fill="black">
+424 360 m
+430 362 l
+428 360 l
+430 358 l
+424 360 l
+</path>
+<path matrix="1 0 0 1 2 208" stroke="black" fill="lightgreen">
+456 344 m
+434 344 l
+</path>
+</group>
+</group>
+<path stroke="purple">
+384 632 m
+416 632 l
+</path>
+<path stroke="red" dash="dotted" pen="fat">
+238 840 m
+238 0 l
+</path>
+<path matrix="1 0 0 1 238 0" stroke="red" dash="dotted" pen="fat">
+238 840 m
+238 0 l
+</path>
+<path matrix="1 0 0 1 476 0" stroke="red" dash="dotted" pen="fat">
+238 840 m
+238 0 l
+</path>
+<path matrix="1 0 0 1 714 0" stroke="red" dash="dotted" pen="fat">
+238 840 m
+238 0 l
+</path>
 </page>
 </ipe>
