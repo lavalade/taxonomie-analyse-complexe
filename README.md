@@ -6,8 +6,6 @@
 
 # Taxonomie d’analyse complexe
 
-⚠️  **Ce diagramme n’est pas achevé (mais presque!)**
-
 - [Introduction](#introduction)
     - [À propos des diagrammes de classe](#a-propos-des-diagrammes-de-classe)
 - [Contribution](#contribution)
@@ -29,14 +27,15 @@ Exportation PDF vers PNG :
 
 <p align="center">
   <img
-    src="https://github.com/LaurentValade/taxonomie-matrices-carrees/blob/main/README/taxonomie-analyse-complexe.ipe.pdf.50dpi.png"
+    src="https://github.com/LaurentValade/taxonomie-analyse-complexe/blob/main/README/taxonomie-analyse-complexe.ipe.pdf.v0.0.300dpi.png"
+    width="800"
     alt="Taxonomie d’analyse complexe"
   />
 </p>
 
 ### À propos des diagrammes de classe
 
-Ces diagrammes sont inspirés des [diagrammes de classes](https://fr.wikipedia.org/wiki/Diagramme_de_classes) de la [programmation orientée objets](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet), cette inspiration est pertinente car il y a une forte analogie entre [inclusion](https://fr.wikipedia.org/wiki/Inclusion_%28math%C3%A9matiques%29) et [héritage](https://fr.wikipedia.org/wiki/H%C3%A9ritage_%28informatique%29) :
+Le tier gauche de ce poster est un diagramme d’ensemble inspiré des [diagrammes de classes](https://fr.wikipedia.org/wiki/Diagramme_de_classes) de la [programmation orientée objets](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet), cette inspiration est pertinente car il y a une forte analogie entre [inclusion](https://fr.wikipedia.org/wiki/Inclusion_%28math%C3%A9matiques%29) et [héritage](https://fr.wikipedia.org/wiki/H%C3%A9ritage_%28informatique%29) :
 
 |                        Héritage de classes                        |              Inclusion d’ensembles             |
 |:-----------------------------------------------------------------:|:----------------------------------------------:|
@@ -47,7 +46,6 @@ Ces diagrammes sont inspirés des [diagrammes de classes](https://fr.wikipedia.o
 [**1**]: Par exemple avec `Vehicules <- Train`, il existe moins de trains que de véhicules.
 
 La notion importante et commune est que si `A <- B`, alors `B` possède plus de propriétés/attributs que `A` ; et par conséquent représente une population/ensemble/… plus petit.
-
 
 ## Contribution
 
